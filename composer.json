@@ -1,0 +1,68 @@
+{
+    "name": ":vendor_slug/:package_slug",
+    "description": ":package_description",
+    "keywords": [
+        ":vendor_name",
+        ":package_slug"
+    ],
+    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": ":author_name",
+            "email": "author@domain.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "blitz-php/coding-standard": "^1.3",
+        "kahlan/kahlan": "^5.2",
+        "phpstan/phpstan": "^1.10.2",
+        "satooshi/php-coveralls": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "VendorName\\Skeleton\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "VendorName\\Skeleton\\Spec\\": "spec"
+        }
+    },
+    "scripts": {
+        "analyze": [
+            "Composer\\Config::disableProcessTimeout",
+            "bash -c \"XDEBUG_MODE=off phpstan analyse\""
+        ],
+        "cs": [
+            "Composer\\Config::disableProcessTimeout",
+            "php-cs-fixer fix --ansi --verbose --dry-run --diff"
+        ],
+        "cs:fix": [
+            "Composer\\Config::disableProcessTimeout",
+            "php-cs-fixer fix --ansi --verbose --diff"
+        ],
+        "sa": "@analyze",
+        "style": "@cs:fix",
+        "test": "kahlan",
+        "test:cov": "kahlan --coverage=3 --reporter=verbose --clover=clover.xml"
+    },
+    "scripts-descriptions": {
+        "analyze": "Lance l'analyse statique du code du framework",
+        "test": "Execute les tests unitaires",
+        "cs": "Vérifie les normes de codage",
+        "cs:fix": "Corriger le style de codage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
