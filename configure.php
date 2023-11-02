@@ -129,9 +129,9 @@ function setupTestingLibrary(string $testingLibrary): void
         unlink(__DIR__.'/tests/ExampleTestPhpunit.php');
         unlink(__DIR__.'/tests/ExampleTestKahlan.php');
         unlink(__DIR__.'/.github/workflows/run-tests-phpunit.yml');
-		unlink(__DIR__.'/.github/workflows/run-tests-kahlan.yml');
-		unlink(__DIR__.'/phpunit.xml.dist');
-		unlink(__DIR__.'/kahlan-config.php');
+        unlink(__DIR__.'/.github/workflows/run-tests-kahlan.yml');
+        unlink(__DIR__.'/phpunit.xml.dist');
+        unlink(__DIR__.'/kahlan-config.php');
 
         rename(
             from: __DIR__.'/tests/ExampleTestPest.php',
@@ -155,8 +155,8 @@ function setupTestingLibrary(string $testingLibrary): void
         unlink(__DIR__.'/tests/Pest.php');
         unlink(__DIR__.'/tests/ExampleTestKahlan.php');
         unlink(__DIR__.'/.github/workflows/run-tests-pest.yml');
-		unlink(__DIR__.'/.github/workflows/run-tests-kahlan.yml');
-		unlink(__DIR__.'/kahlan-config.php');
+        unlink(__DIR__.'/.github/workflows/run-tests-kahlan.yml');
+        unlink(__DIR__.'/kahlan-config.php');
 
         rename(
             from: __DIR__.'/tests/ExampleTestPhpunit.php',
@@ -181,17 +181,17 @@ function setupTestingLibrary(string $testingLibrary): void
         unlink(__DIR__.'/tests/Pest.php');
         unlink(__DIR__.'/.github/workflows/run-tests-pest.yml');
         unlink(__DIR__.'/.github/workflows/run-tests-phpunit.yml');
-		unlink(__DIR__.'/phpunit.xml.dist');
+        unlink(__DIR__.'/phpunit.xml.dist');
 
         rename(
             from: __DIR__.'/tests/ExampleTestKahlan.php',
             to: __DIR__.'/tests/ExampleSpec.php'
         );
         rename(
-			from: __DIR__.'/tests',
+            from: __DIR__.'/tests',
             to: __DIR__.'/spec'
         );
-		file_put_contents(__DIR__.'/spec/bootstrap.php', "<?php \n");
+        file_put_contents(__DIR__.'/spec/bootstrap.php', "<?php \n");
 
         rename(
             from: __DIR__.'/.github/workflows/run-tests-kahlan.yml',
@@ -240,7 +240,6 @@ function setupCodeStyleLibrary(string $codeStyleLibrary): void
     }
 }
 
-
 $gitName = run('git config user.name');
 $authorName = ask('Nom de l\'auteur', $gitName);
 
@@ -268,7 +267,7 @@ $className = ask('Nom de la classe', $className);
 $description = ask('Description du package', "Ceci est mon package {$packageSlug}");
 
 $testingLibrary = askWithOptions(
-	'Quelle bibliothèque de tests souhaitez-vous utiliser?',
+    'Quelle bibliothèque de tests souhaitez-vous utiliser?',
     ['kahlan', 'pest', 'phpunit'],
     'kahlan',
 );
