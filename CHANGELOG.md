@@ -1,4 +1,4 @@
-# Changelog
+# Journal des modifications
 
-All notable changes to `:package_name` will be documented in this file.
+Toutes les modifications notables apportées à `:package_name` seront documentées dans ce fichier.
 
