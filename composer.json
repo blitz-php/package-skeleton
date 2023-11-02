@@ -42,8 +42,7 @@
     "scripts-descriptions": {
         "analyze": "Lance l'analyse statique du code du framework",
         "test": "Execute les tests unitaires",
-        "cs": "Vérifie les normes de codage",
-        "cs:fix": "Corriger le style de codage"
+        "format": "Corriger le style de codage"
     },
     "config": {
         "sort-packages": true,

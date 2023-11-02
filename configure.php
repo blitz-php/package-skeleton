@@ -201,7 +201,7 @@ function setupTestingLibrary(string $testingLibrary): void
         replace_in_file(__DIR__.'/composer.json', [
             ':require_dev_testing' => '"kahlan/kahlan": "^5.2"',
             ':scripts_testing' => '"test": "vendor/bin/kahlan",
-            "test:cov": "kahlan --coverage=3 --reporter=verbose --clover=clover.xml"',
+            "test:cov": "vendor/bin/kahlan --coverage=3 --reporter=verbose --clover=clover.xml"',
             ':plugins_testing,' => '', // Nous devons également supprimer la virgule ici, car il n'y a rien à ajouter
         ]);
     }
