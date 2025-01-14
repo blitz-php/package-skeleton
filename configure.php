@@ -199,9 +199,12 @@ function setupTestingLibrary(string $testingLibrary): void
         );
 
         replace_in_file(__DIR__.'/composer.json', [
-            ':require_dev_testing' => '"kahlan/kahlan": "^5.2"',
+            ':require_dev_testing' => '"kahlan/kahlan": "^6.0"',
             ':scripts_testing' => '"test": "vendor/bin/kahlan",
-            "test:cov": "vendor/bin/kahlan --coverage=3 --reporter=verbose --clover=clover.xml"',
+			"test:cov": [
+				"Composer\\Config::disableProcessTimeout",
+				"vendor/bin/kahlan --coverage=4 --reporter=verbose --clover=clover.xml"
+			]',
             ':plugins_testing,' => '', // Nous devons également supprimer la virgule ici, car il n'y a rien à ajouter
         ]);
     }
@@ -234,7 +237,10 @@ function setupCodeStyleLibrary(string $codeStyleLibrary): void
 
         replace_in_file(__DIR__.'/composer.json', [
             ':require_dev_codestyle' => '"blitz-php/coding-standard": "^1.4"',
-            ':scripts_codestyle' => '"format": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --allow-risky=yes"',
+            ':scripts_codestyle' => '"cs:fix": [
+            	"Composer\\Config::disableProcessTimeout",
+				"vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --allow-risky=yes"
+			]',
             ':plugins_testing' => '',
         ]);
     }

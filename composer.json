@@ -19,7 +19,8 @@
     },
     "require-dev": {
         :require_dev_testing,
-        :require_dev_codestyle
+        :require_dev_codestyle,
+		"phpstan/phpstan": "^1.11"
     },
     "autoload": {
         "psr-4": {
@@ -36,13 +37,13 @@
         :scripts_codestyle,
 		"analyze": [
             "Composer\\Config::disableProcessTimeout",
-            "bash -c \"XDEBUG_MODE=off phpstan analyse\""
+            "bash -c \"XDEBUG_MODE=off vendor/bin/phpstan analyse\""
         ]
     },
     "scripts-descriptions": {
         "analyze": "Lance l'analyse statique du code du framework",
         "test": "Execute les tests unitaires",
-        "format": "Corriger le style de codage"
+        "cs:fix": "Corriger le style de codage"
     },
     "config": {
         "sort-packages": true,

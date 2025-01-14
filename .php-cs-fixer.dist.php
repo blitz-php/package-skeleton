@@ -12,7 +12,6 @@ $finder = Finder::create()
         __DIR__ . '/src',
         __DIR__ . '/spec',
     ])
-    ->notName('#Foobar.php$#')
     ->append([
         __FILE__,
     ]);
