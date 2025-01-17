@@ -222,7 +222,7 @@ function setupCodeStyleLibrary(string $codeStyleLibrary): void
 
         replace_in_file(__DIR__.'/composer.json', [
             ':require_dev_codestyle' => '"laravel/pint": "^1.0"',
-            ':scripts_codestyle' => '"format": "vendor/bin/pint"',
+            ':scripts_codestyle' => '"cs:fix": "vendor/bin/pint"',
             ':plugins_testing' => '',
         ]);
 
@@ -237,8 +237,12 @@ function setupCodeStyleLibrary(string $codeStyleLibrary): void
 
         replace_in_file(__DIR__.'/composer.json', [
             ':require_dev_codestyle' => '"blitz-php/coding-standard": "^1.4"',
-            ':scripts_codestyle' => '"cs:fix": [
-            	"Composer\\Config::disableProcessTimeout",
+            ':scripts_codestyle' => '"cs": [
+				"Composer\\Config::disableProcessTimeout",
+				"php-cs-fixer check --ansi --verbose --diff"
+			],
+			"cs:fix": [
+				"Composer\\Config::disableProcessTimeout",
 				"vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --allow-risky=yes"
 			]',
             ':plugins_testing' => '',
